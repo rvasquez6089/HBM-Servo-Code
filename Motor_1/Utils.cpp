@@ -1251,7 +1251,7 @@ void Setstartangle()
     }
      anglefloat = encoderReading * 0.02197265625 / avg;
   startangle = anglefloat;
-  r = lookup[0]+startangle;
+  r = lookup[0]+startangle -360;
 }
 
 

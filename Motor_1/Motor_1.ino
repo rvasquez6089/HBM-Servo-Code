@@ -1,5 +1,5 @@
 
-/*
+/* MOTOR 1
   -------------------------------------------------------------
   Mechaduino 0.1 Firmware  v0.1.3
   SAM21D18 (Arduino Zero compatible), AS5047 encoder, A4954 driver
@@ -70,10 +70,11 @@ void setup()        // This code runs once at startup
   
   //    configureStepDir();           // Configures setpoint to be controlled by step/dir interface
   //    configureEnablePin();         // Active low, for use wath RAMPS 1.4 or similar
-      //enableTCInterrupts();         // uncomment this line to start in closed loop 
-     // mode = 'x';                   // start in position mode
+                   // start in position mode
     //yw = 0;
     Setstartangle(); //used to orient the start up location to 0 degrees. 
+     enableTCInterrupts();         // uncomment this line to start in closed loop 
+     mode = 'x'; 
     
 }
   
@@ -86,8 +87,16 @@ void setup()        // This code runs once at startup
 
 void loop()                 // main loop
 {
-  serialCheck();
+
+      //serialCheck();
+
+        while (Serial1.available() == 0)  {}
+        r = Serial1.parseFloat();
+        SerialUSB.println(r);
+
  
+
+
   
   
 }
