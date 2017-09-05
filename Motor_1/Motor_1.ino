@@ -91,7 +91,7 @@ void loop()                 // main loop
       //serialCheck();
 
         while (Serial1.available() == 0)  {}
-        r = Serial1.parseFloat();
+        r = 3.00*Serial1.parseFloat();
         SerialUSB.println(r);
 
  

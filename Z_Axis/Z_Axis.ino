@@ -1,7 +1,5 @@
 
-//MOTOR 2
-
-/*
+/* MOTOR 1
   -------------------------------------------------------------
   Mechaduino 0.1 Firmware  v0.1.3
   SAM21D18 (Arduino Zero compatible), AS5047 encoder, A4954 driver
@@ -19,7 +17,7 @@
 
  s  -  step
  d  -  dir
- p  -  print [step number] , [encoder reading]
+ p  -  print [step number] , [encoder reading
 
  c  -  calibration routine
  e  -  check encoder diagnositics
@@ -47,6 +45,8 @@
 #include "Parameters.h"
 #include "State.h"
 #include "analogFastWrite.h"
+
+float tempang;
 
 //////////////////////////////////////
 /////////////////SETUP////////////////
@@ -83,22 +83,22 @@ void setup()        // This code runs once at startup
 
 
 //////////////////////////////////////
-  /////////////////LOOP/////////////////
-  //////////////////////////////////////
-  
-  
-  void loop()                 // main loop
-  {
-  
-        //serialCheck();
+/////////////////LOOP/////////////////
+//////////////////////////////////////
+      
 
-        /*while (Serial1.available() == 0)  {}
-        r = Serial1.parseFloat();
-        SerialUSB.println(r);*/
+void loop()                 // main loop
+{
+
+      //serialCheck();
+
         while (Serial1.available() == 0)  {}
-        r = 3.00*Serial1.parseFloat();
+        tempang = Serial1.parseFloat();
+        r = (360.00/5.00)*tempang;
         SerialUSB.println(r);
-
+        
+        //r=random(0,1000);
+        //delay(700);
  
 
 
